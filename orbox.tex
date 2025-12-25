@@ -1,0 +1,44 @@
+\NewDocumentCommand{\orbitalgroup}{mmm}{%
+  \def\xlocal{0}
+  \def\boxcount{0}
+  \foreach \e in {#3} {
+    \draworbitalbox{\xlocal}{\e}
+    \pgfmathparse{\xlocal + 0.7} \xdef\xlocal{\pgfmathresult}
+    \pgfmathparse{\boxcount + 1} \xdef\boxcount{\pgfmathresult}
+  }
+    \pgfmathparse{(\boxcount * 0.7 - 0.1)/2}
+  \node at (\pgfmathresult,-0.45) {{#1#2}};
+}
+
+\NewDocumentCommand{\orbox}{>{\SplitList{;}}m}{%
+  \begin{center}
+    \scalebox{0.8}{%
+      \begin{tikzpicture}[baseline={(current bounding box.south)}]
+        \def\xglobal{0}
+        \ProcessList{#1}{\placeorbital}
+      \end{tikzpicture}
+    }
+  \end{center}
+}
+
+\newcommand{\placeorbital}[1]{%
+  \begin{scope}[xshift=\xglobal cm]
+    \expandafter\orbitalgroup#1
+  \end{scope}
+  \def\boxcount{0}
+  \edef\templist{#1}
+  \expandafter\getboxcount\templist\relax
+  \pgfmathparse{\xglobal + 0.7 * \boxcount + 0.6}
+  \xdef\xglobal{\pgfmathresult}
+}
+
+\def\getboxcount#1#2#3\relax{%
+  \def\rawlist{#3}
+  \def\boxcount{0}
+  \foreach \e in \rawlist {
+    \pgfmathparse{\boxcount + 1}
+    \xdef\boxcount{\pgfmathresult}
+  }
+}
+
+
