@@ -1,4 +1,4 @@
-> **siunitx overview**
+### **siunitx overview**
 
 The **siunitx** package mainly consists of:
 
@@ -6,7 +6,7 @@ The **siunitx** package mainly consists of:
 - `\unit`
 - `\qty` (essentially `<num><unit>`)
 
-> **Scope**
+### **Scope**
 
 `siunitx` can be used in **any environment**:
 
@@ -15,7 +15,7 @@ The **siunitx** package mainly consists of:
 - headings
 - captions, etc.
 
-> **\num**
+### **\num**
 
 `\num[<options>]{<number>}`
 
@@ -30,7 +30,7 @@ Converts scientific notation:
 `\num{5e6}  → 5 × 10^{6}`
 `\num{5e-6} → 5 × 10^{-6}`
 
-> **\unit**
+### **\unit**
 
 `\unit[<options>]{<unit>}`
 
@@ -101,7 +101,7 @@ or
 
 If the `cancel` package is loaded, `\cancel` may be used and applies to the **next unit token**.
 
-> **Accepted Units**
+### **Accepted Units**
 
 The following are common accepted units. For each, use either the symbol literal or the macro command:
 
@@ -187,7 +187,7 @@ Common prefix-unit combinations have dedicated macros:
 | milliliter | `\mL` | mL |
 | liter | `\L` | L |
 
-> **\qty**
+### **\qty**
 
 `\qty[<options>]{<number>}{<unit>}`
 
