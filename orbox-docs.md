@@ -14,7 +14,7 @@ Hund’s rule, pairing, and exceptions are handled explicitly by the input.
 
 Orbital box diagrams are drawn using:
 
-```javascript
+```
 \orbox{<groups>}
 ```
 
@@ -24,14 +24,13 @@ This command draws **one horizontal line** of orbital boxes, grouped by subshell
 
 Each group has the form:
 
-```javascript
-{<n>}{<subshell>}{<electron list>}
+```
+{<subshell label>}{<electron list>}
 ```
 
 where:
 
-- `<n>` is the principal quantum number (used only for labeling)
-- `<subshell>` is the subshell label (`s`, `p`, `d`, etc.) (used only for labeling)
+- `<subshell label>` is the subshell label (`1s`, `2p`, `3d`, etc.)
 - `<electron list>` is a comma-separated list specifying the number of electrons in each orbital
 
 Groups are separated by semicolons.
@@ -50,23 +49,23 @@ The number of entries in the list determines the number of boxes drawn.
 
 Example:
 
-```javascript
-{3}{d}{1,1,0,0,0}
+```
+{3d}{1,1,0,0,0}
 ```
 
 draws five boxes (a `d` subshell), with two singly occupied orbitals and three empty orbitals.
 
 > EXAMPLE
 
-```javascript
+```
 \orbox{
-    {1}{s}{2};
-    {2}{s}{2};
-    {2}{p}{2,2,2};
-    {3}{s}{2};
-    {3}{p}{2,2,2};
-    {4}{s}{2};
-    {3}{d}{1,1,0,0,0}
+    {1s}{2};
+    {2s}{2};
+    {2p}{2,2,2};
+    {3s}{2};
+    {3p}{2,2,2};
+    {4s}{2};
+    {3d}{1,1,0,0,0}
 }
 ```
 
